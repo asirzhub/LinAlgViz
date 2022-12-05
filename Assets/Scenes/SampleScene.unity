@@ -315,7 +315,7 @@ MonoBehaviour:
   moveSpeed: 10
   lookSpeed: 5
   zoomSpeed: 10
-  smoothScale: 5
+  smoothScale: 10
   targetPos: {x: 0, y: 5, z: 5}
   targetRot: {x: 0, y: 0, z: 0, w: 0}
   mouseDelta: {x: 0, y: 0}

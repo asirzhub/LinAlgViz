@@ -32,7 +32,7 @@ public class CameraControl : MonoBehaviour
         {
             // efficiently manage position vector by multiplying everything in one line, float -> vector
             Vector3 forwards = Input.GetAxisRaw("Vertical") * transform.forward;
-            Vector3 sideways = Input.GetAxisRaw("Horizontal") * transform.right;
+            Vector3 sideways = Input.GetAxisRaw("Horizontal") * (Vector3.ProjectOnPlane(transform.right, Vector3.up));
             Vector3 upwards = Input.GetAxisRaw("Height") * transform.up;
 
             targetPos += Time.deltaTime * moveSpeed * (forwards + sideways + upwards);
@@ -43,8 +43,7 @@ public class CameraControl : MonoBehaviour
 
             //clamp rotation
             mouseDelta.y = Mathf.Clamp(mouseDelta.y, -90, 90);
-            targetRot = Quaternion.Euler(-mouseDelta.y, mouseDelta.x, 0);
-            Debug.Log(mouseDelta.x + " " + mouseDelta.y);
+            targetRot = Quaternion.Euler(-mouseDelta.y, mouseDelta.x, -Input.GetAxis("Horizontal")*0.5f);
 
             // zoom control
             fov -= zoomSpeed * Input.GetAxisRaw("Mouse ScrollWheel");
@@ -56,8 +55,8 @@ public class CameraControl : MonoBehaviour
     private void LateUpdate()
     {
         // changing theses values during LateUpdate() makes for a smoother viewer experience
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothScale);
-        transform.localRotation = Quaternion.Lerp(transform.rotation, targetRot, smoothScale);
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * smoothScale);
+        transform.localRotation = Quaternion.Lerp(transform.rotation, targetRot, Time.fixedDeltaTime * smoothScale);
         cam.fieldOfView = fov;
     }
 }
