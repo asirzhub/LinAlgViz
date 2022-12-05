@@ -21,6 +21,8 @@ public class CameraControl : MonoBehaviour
     private void Start()
     {
         cam = GetComponent<Camera>();
+        targetPos = transform.position;
+        mouseDelta = new Vector2(-135, -30);
         fov = cam.fieldOfView;
     }
 
@@ -42,6 +44,7 @@ public class CameraControl : MonoBehaviour
             //clamp rotation
             mouseDelta.y = Mathf.Clamp(mouseDelta.y, -90, 90);
             targetRot = Quaternion.Euler(-mouseDelta.y, mouseDelta.x, 0);
+            Debug.Log(mouseDelta.x + " " + mouseDelta.y);
 
             // zoom control
             fov -= zoomSpeed * Input.GetAxisRaw("Mouse ScrollWheel");
