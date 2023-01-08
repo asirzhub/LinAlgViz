@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public class VectorInfoWindowState : UIState
+public struct VectorInfoWindowState
 {
     public int vectorID; // read only
     public string vectorName;
