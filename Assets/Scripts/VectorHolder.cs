@@ -15,6 +15,6 @@ public class VectorHolder : MonoBehaviour
     {
         Vector3[] positions = new Vector3[2]{basePosition, basePosition + UpdatedVector.GetVectorThree()};
         lineRenderer.SetPositions(positions);
-        lineRenderer.SetColors(UpdatedVector.vectorColor, UpdatedVector.vectorColor);
+        lineRenderer.material.SetColor("_Color", UpdatedVector.vectorColor);
     }
 }
