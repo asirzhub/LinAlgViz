@@ -5,6 +5,8 @@ using UnityEngine;
 
 public static class Globals
 {
+    public const float vectorTipScalar = 0.25f;
+    
     public static List<CustomVector> allVectorsData;
     public static List<VectorHolder> allVectorsView;
     public static List<CustomMatrix> allMatrices;
@@ -13,6 +15,7 @@ public static class Globals
 public class Global : MonoBehaviour
 {
     public GameObject vectorViewPrefab;
+    
     private void Awake()
     {
         Globals.allVectorsData = new List<CustomVector>()
