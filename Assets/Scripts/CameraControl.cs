@@ -28,7 +28,7 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
-        if (Application.isFocused)
+        if (Application.isFocused && Input.GetKey(KeyCode.Mouse1))
         {
             // efficiently manage position vector by multiplying everything in one line, float -> vector
             Vector3 forwards = Input.GetAxisRaw("Vertical") * transform.forward;
