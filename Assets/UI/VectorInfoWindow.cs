@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public class VectorInfoWindowState : UIState
+public class VectorInfoWindowState
 {
     public int vectorID; // read only
     public string vectorName;
@@ -31,8 +31,9 @@ public class VectorInfoWindow : MonoBehaviour
         float.TryParse(f, out output);
         return output;
     }
-    
-    public void UpdateStateFromFields()
+
+    // modify the model with this function
+    public void ApplyToState()
     {
         state.vectorName = vectorName.text;
         Vector3 componenets = new Vector3
@@ -42,15 +43,13 @@ public class VectorInfoWindow : MonoBehaviour
             z = ParseFloat(z.text)
         };
         state.components = componenets;
-        
         // TODO : get a color picker
         //state.vectorColor = vectorName.text;
     }
-
-    public void ApplyState()
+    
+    // modify the view with this function
+    public void UpdateView()
     {
-        // send the new data, from the state, to the vector manager
-        //   (manager will handle applying the settings to the correct vector)
         
         vectorName.SetTextWithoutNotify(state.vectorName);
 
@@ -62,9 +61,9 @@ public class VectorInfoWindow : MonoBehaviour
         colorPreview.color = state.vectorColor;
     }
 
-    public void UpdateAndApplyState()
+    public void ApplyAndUpdate()
     {
-        UpdateStateFromFields();
-        ApplyState();
+        ApplyToState();
+        UpdateView();
     }
 }
