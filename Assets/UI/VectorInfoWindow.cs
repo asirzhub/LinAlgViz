@@ -11,6 +11,14 @@ public class VectorInfoWindowState
     public string vectorName;
     public Vector3 components;
     public Color vectorColor;
+
+    public VectorInfoWindowState(CustomVector v)
+    {
+        vectorName = v.nameTag;
+        // will need to replace the components variable as List<float> soon
+        components = new Vector3() { x = v.components[0], y = v.components[1], z = components[2] };
+        vectorColor = v.vectorColor;
+    }
 }
 
 public class VectorInfoWindow : MonoBehaviour
@@ -50,7 +58,6 @@ public class VectorInfoWindow : MonoBehaviour
     // modify the view with this function
     public void UpdateView()
     {
-        
         vectorName.SetTextWithoutNotify(state.vectorName);
 
         Vector3 stateComps = state.components;

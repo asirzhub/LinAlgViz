@@ -15,6 +15,7 @@ public static class Globals
 public class Global : MonoBehaviour
 {
     public GameObject vectorViewPrefab;
+    public AppUI appUI;
     
     private void Awake()
     {
@@ -31,17 +32,8 @@ public class Global : MonoBehaviour
             vectorView.transform.parent = this.transform;
             vectorView.BuildVector(vectorData);
         }
-    }
 
-    private float timer = 3;
-
-    private void Update()
-    {
-        timer += Time.deltaTime;
-
-        if (timer > 3)
-        {
-            timer = 0;
-        }
+        appUI.vectorList.state.vectors = Globals.allVectorsData;
+        appUI.vectorList.UpdateView();
     }
 }
