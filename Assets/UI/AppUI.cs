@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,25 @@ using UnityEngine;
 [System.Serializable]
 public class AppUIState
 {
-    public VectorListState vectorListState;
+    public VectorListState vectorsListState;
+    public MenuBarState menuBarState;
 }
 
 public class AppUI : MonoBehaviour
 {
     public AppUIState state;
     public VectorList vectorList;
+    public MenuBar menuBar;
+
+    private void Awake()
+    {
+        state.vectorsListState = vectorList.state;
+        state.menuBarState = menuBar.state;
+    }
 
     public void UpdateView()
     {
-        state.vectorListState = vectorList.state;
-        vectorList.UpdateView();
+        vectorList.state = state.vectorsListState;
+        menuBar.state = state.menuBarState;
     }
 }
