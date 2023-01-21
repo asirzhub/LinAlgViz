@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class VectorInfoWindowState
@@ -16,7 +17,7 @@ public class VectorInfoWindowState
     {
         vectorName = v.nameTag;
         // will need to replace the components variable as List<float> soon
-        components = new Vector3() { x = v.components[0], y = v.components[1], z = components[2] };
+        components = new Vector3() { x = v.components[0], y = v.components[1], z = v.components[2] };
         vectorColor = v.vectorColor;
     }
 }
@@ -27,9 +28,9 @@ public class VectorInfoWindow : MonoBehaviour
     
     public TMP_InputField vectorName;
 
-    public TMP_InputField x;
-    public TMP_InputField y;
-    public TMP_InputField z;
+    public TMP_InputField xField;
+    public TMP_InputField yField;
+    public TMP_InputField zField;
 
     public Image colorPreview;
 
@@ -46,9 +47,9 @@ public class VectorInfoWindow : MonoBehaviour
         state.vectorName = vectorName.text;
         Vector3 componenets = new Vector3
         {
-            x = ParseFloat(x.text),
-            y = ParseFloat(y.text),
-            z = ParseFloat(z.text)
+            x = ParseFloat(xField.text),
+            y = ParseFloat(yField.text),
+            z = ParseFloat(zField.text)
         };
         state.components = componenets;
         // TODO : get a color picker
@@ -61,9 +62,10 @@ public class VectorInfoWindow : MonoBehaviour
         vectorName.SetTextWithoutNotify(state.vectorName);
 
         Vector3 stateComps = state.components;
-        x.SetTextWithoutNotify(stateComps.x.ToString());
-        y.SetTextWithoutNotify(stateComps.y.ToString());
-        z.SetTextWithoutNotify(stateComps.z.ToString());
+        Debug.Log("Updating view with state components" + stateComps);
+        xField.SetTextWithoutNotify(stateComps.x.ToString());
+        yField.SetTextWithoutNotify(stateComps.y.ToString());
+        zField.SetTextWithoutNotify(stateComps.z.ToString());
 
         colorPreview.color = state.vectorColor;
     }

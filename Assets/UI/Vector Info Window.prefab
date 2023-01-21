@@ -929,9 +929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vectorName: {fileID: 3562167261616549721}
-  x: {fileID: 1231775781041987855}
-  y: {fileID: 560837328311203105}
-  z: {fileID: 6202010676946653028}
+  xField: {fileID: 1231775781041987855}
+  yField: {fileID: 560837328311203105}
+  zField: {fileID: 6202010676946653028}
   colorPreview: {fileID: 4330656198316324365}
 --- !u!1 &1231775781041988081
 GameObject:
