@@ -23,7 +23,7 @@ public class VectorHolder : MonoBehaviour
         cone.LookAt(2*tipLocation);
         cone.GetComponent<Renderer>().material.SetColor("_Color", UpdatedVector.vectorColor);
 
-        float coneSizeMult = Vector3.Magnitude(UpdatedVector.GetVectorThree()) * Globals.vectorTipScalar;
+        float coneSizeMult = Vector3.one + (0.05 * (Vector3.Magnitude(UpdatedVector.GetVectorThree()))) * G.I.appState.vec;
         cone.transform.localScale = new Vector3(coneSizeMult, coneSizeMult, coneSizeMult);
     }
 }

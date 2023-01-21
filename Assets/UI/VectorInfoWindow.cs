@@ -54,6 +54,10 @@ public class VectorInfoWindow : MonoBehaviour
         state.components = componenets;
         // TODO : get a color picker
         //state.vectorColor = vectorName.text;
+
+        G.I.appState.allVectorsData[state.vectorID] = new CustomVector(new List<float>(){state.components.x, state.components.y, state.components.z},
+            state.vectorColor, state.vectorName, true);
+        G.I.UpdateView();
     }
     
     // modify the view with this function

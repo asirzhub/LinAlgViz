@@ -30,11 +30,12 @@ public class VectorList : MonoBehaviour
         }
         
         //respawn new windows
-        foreach (var vector in state.vectors)
+        for (int i = 0; i <  state.vectors.Count; i++)
         {
             var g = Instantiate(vectorInfoWindowPrefab).GetComponent<VectorInfoWindow>();
             g.transform.parent = this.transform;
-            g.state = new VectorInfoWindowState(vector);
+            g.state = new VectorInfoWindowState(state.vectors[i]);
+            g.state.vectorID = i;
             g.UpdateView();
         }
     }
