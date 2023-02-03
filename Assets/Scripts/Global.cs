@@ -3,11 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Constants
-{
-    public const float vectorTipScalar = 0.25f;
-}
-
 public class AppState
 {
     
@@ -59,7 +54,7 @@ public class Global : MonoBehaviour
 
     public void UpdateView()
     {
-        //appState.allVectorsData = new List<CustomVector>();// flush
+        appState.allVectorsData = new List<CustomVector>();// flush
         
         foreach (var vectorData in appState.allVectorsData)
         {

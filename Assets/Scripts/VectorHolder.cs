@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 //  VectorHolder doesn't hold the state (CustomVector) because
 //  its data is already contained by its parent object, Global
@@ -23,7 +23,7 @@ public class VectorHolder : MonoBehaviour
         cone.LookAt(2*tipLocation);
         cone.GetComponent<Renderer>().material.SetColor("_Color", UpdatedVector.vectorColor);
 
-        float coneSizeMult = Vector3.one + (0.05 * (Vector3.Magnitude(UpdatedVector.GetVectorThree()))) * G.I.appState.vec;
-        cone.transform.localScale = new Vector3(coneSizeMult, coneSizeMult, coneSizeMult);
+        float coneSizeMult = 0.2f;
+        cone.transform.localScale = (coneSizeMult) * Vector3.one;
     }
 }
