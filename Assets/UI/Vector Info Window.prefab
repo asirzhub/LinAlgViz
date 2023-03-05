@@ -35,10 +35,10 @@ RectTransform:
   m_Father: {fileID: 1231775780797916408}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.2106, y: 19.488}
-  m_SizeDelta: {x: 137.64, y: 21.023}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90.7894, y: -12.511999}
+  m_SizeDelta: {x: 137.64, y: 21.023003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8486223133015299826
 CanvasRenderer:
@@ -371,10 +371,10 @@ RectTransform:
   m_Father: {fileID: 1231775780797916408}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -11.4}
-  m_SizeDelta: {x: 198.78, y: -22.801}
+  m_SizeDelta: {x: 0.7799988, y: -22.801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1231775780222424138
 CanvasRenderer:
@@ -929,9 +929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vectorName: {fileID: 3562167261616549721}
-  x: {fileID: 1231775781041987855}
-  y: {fileID: 560837328311203105}
-  z: {fileID: 6202010676946653028}
+  xField: {fileID: 1231775781041987855}
+  yField: {fileID: 560837328311203105}
+  zField: {fileID: 6202010676946653028}
   colorPreview: {fileID: 4330656198316324365}
 --- !u!1 &1231775781041988081
 GameObject:
@@ -1072,7 +1072,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510674084664914727}
+        m_TargetAssemblyTypeName: VectorInfoWindow, Assembly-CSharp
+        m_MethodName: ApplyToState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -1383,7 +1395,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1510674084664914727}
+        m_TargetAssemblyTypeName: VectorInfoWindow, Assembly-CSharp
+        m_MethodName: ApplyAndUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -1903,7 +1927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X
+  m_text: Y
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2590,7 +2614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X
+  m_text: Z
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
